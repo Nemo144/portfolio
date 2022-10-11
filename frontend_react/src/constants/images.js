@@ -35,6 +35,7 @@ import nb from "../assets/nb.png";
 import skype from "../assets/skype.png";
 import spotify from "../assets/spotify.png";
 import no from "../assets/no.png";
+import nemz1 from "../assets/nemz1.jpg";
 
 export default {
   email,
@@ -71,4 +72,5 @@ export default {
   skype,
   spotify,
   no,
+  nemz1,
 };
