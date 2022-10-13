@@ -55,7 +55,7 @@ const Header = () => {
       <motion.div
         variant={scaleVariants}
         whileInView={scaleVariants.whileInview}
-        className="app__headers-circles"
+        className="app__header-circles"
       >
         {[images.flutter, images.redux, images.sass].map((circle, index) => (
           <div className="circle-cmp app__flex" key={`circle-${index}`}>
