@@ -7,9 +7,13 @@ import "./Work.scss";
 
 const Work = () => {
   return (
-    <div>
-      <h1>Work</h1>
-    </div>
+    <>
+      <h2 className="head-text">
+        My Creative <span>Portfolio</span> Section
+      </h2>
+
+      <div className="app__work-filter">{}</div>
+    </>
   );
 };
 
