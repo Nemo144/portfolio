@@ -12,7 +12,9 @@ const Work = () => {
         My Creative <span>Portfolio</span> Section
       </h2>
 
-      <div className="app__work-filter">{}</div>
+      <div className="app__work-filter">
+        {["Next Js", "React Js", "Web Dev"].map()}
+      </div>
     </>
   );
 };
