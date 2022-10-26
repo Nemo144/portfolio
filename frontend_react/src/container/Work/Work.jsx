@@ -16,11 +16,28 @@ const Work = () => {
     const query = "*[_type == 'works']";
     client.fetch(query).then((data) => {
       setWorks(data);
+
       setFilterWork(data);
     });
   }, []);
 
-  const handleWorkFilter = (item) => {};
+  const handleWorkFilter = (item) => {
+    setActiveFilter(item);
+
+    //to re-trigger the shuffle animation of the card...
+    //upon change of the category
+    setAnimateCard([{ y: 100, opacity: 0 }]);
+
+    setTimeout(() => {
+      setAnimateCard([{ y: 0, opacity: 1 }]);
+
+      if (item === "All") {
+        setFilterWork(works);
+      } else {
+        setFilterWork(works.filter((work) => work.tags.includes(item)));
+      }
+    }, 500);
+  };
 
   return (
     <>
@@ -29,7 +46,7 @@ const Work = () => {
       </h2>
 
       <div className="app__work-filter">
-        {["Next Js", "React Js", "Web Dev", "All"].map((item, index) => (
+        {["Next Js", "React Js", "All"].map((item, index) => (
           <div
             key={index}
             onClick={() => handleWorkFilter(item)}
