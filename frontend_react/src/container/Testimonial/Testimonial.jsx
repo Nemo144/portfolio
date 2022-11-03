@@ -13,21 +13,34 @@ const Testimonial = () => {
 
   useEffect(() => {
     const query = '*[_type == "testimonials"]';
-    const brandQuery = "*[_type == 'brands']";
+    const brandsQuery = "*[_type == 'brands']";
 
     client.fetch(query).then((data) => {
       setTestimonials(data);
     });
 
-    client.fetch(brandQuery).then((data) => {
+    client.fetch(brandsQuery).then((data) => {
       setBrands(data);
     });
   }, []);
   return (
-    <div>
-      <h1>Testimonials</h1>
-    </div>
+    <>
+      {testimonials.length && (
+        <>
+          <div className="app__testimonial-item app__flex">
+            <img
+              src={urlFor(testimonials[currentIndex].imgUrl)}
+              alt="testimonial"
+            />
+          </div>
+        </>
+      )}
+    </>
   );
 };
 
-export default Testimonial;
+export default AppWrap(
+  MotionWrap(Testimonial, "app__testimonial"),
+  "testimonial",
+  "app__primarybg"
+);
