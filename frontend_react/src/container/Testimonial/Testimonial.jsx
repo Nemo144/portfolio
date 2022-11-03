@@ -8,6 +8,21 @@ import "./Testimonial.scss";
 
 const Testimonial = () => {
   const [brands, setBrands] = useState([]);
+  const [testimonials, setTestimonials] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const query = '*[_type == "testimonials"]';
+    const brandQuery = "*[_type == 'brands']";
+
+    client.fetch(query).then((data) => {
+      setTestimonials(data);
+    });
+
+    client.fetch(brandQuery).then((data) => {
+      setBrands(data);
+    });
+  }, []);
   return (
     <div>
       <h1>Testimonials</h1>
