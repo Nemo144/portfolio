@@ -12,11 +12,12 @@ const Testimonial = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    const query = '*[_type == "testimonials"]';
+    const query = "*[_type == 'testimonial']";
     const brandsQuery = "*[_type == 'brands']";
 
     client.fetch(query).then((data) => {
       setTestimonials(data);
+      console.log(data);
     });
 
     client.fetch(brandsQuery).then((data) => {
@@ -29,7 +30,7 @@ const Testimonial = () => {
         <>
           <div className="app__testimonial-item app__flex">
             <img
-              src={urlFor(testimonials[currentIndex].imgUrl)}
+              src={urlFor(testimonials[currentIndex].imageurl)}
               alt="testimonial"
             />
           </div>
