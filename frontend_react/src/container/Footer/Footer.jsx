@@ -77,6 +77,7 @@ const Footer = () => {
               name="name"
             />
           </div>
+
           <div className="app__flex">
             <input
               className="p-text"
